@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>客群筛选工具</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/jquery-ui.custom.min.css" />
+  <link rel="stylesheet" href="css/jquery.treetable.css" />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+<div class="layout">
+  <!--头部-->
+  <div class="header"></div>
+  <!--内容-->
+  <div class="content">
+    <!--容器-->
+    <div id="container" class=""></div>
+    <!-- 右边功能 -->
+    <div class="rightFunction">
+      <ul id="rightMenu"></ul>
+    </div>
+  </div>
+</div>
+<!--弹框背景-->
+<div class="popUpBg"></div>
+<!-- 选择弹框 -->
+<div id="popUpModel" class="popUpModel popUp">
+  <div class="popUpContent_header">
+    <h5><span>标签选择：</span><span id='tagSelection'>请选择标签</span></h5>
+    <span class="popUpClose">×</span>
+  </div>
+  <div class="popUpContent">
+    <div class="popUpContent_screening">
+      <input class="popUpText" type="text" name="">
+      <input class="marginRight10 popUpButton" type="submit" name="" value="搜 索">
+      <span>类型</span>
+      <select name="" id="popUpSelect" class="popUpSelect" disabled="disabled">
+        <option value="0">请选择</option>
+        <option value="1">类型1</option>
+        <option value="2">类型2</option>
+        <option value="3">类型3</option>
+        <option value="4">类型4</option>
+        <option value="5">类型5</option>
+      </select>
+      <div class="popUpRule1">
+        最大值 <input class="popUpText" type="text" name="">
+          最小值 <input class="popUpText" type="text" name="">
+      </div>
+      <div class="popUpRule2">
+        性别 <input class="popUpText" type="text" name="">
+        最小值 <input class="popUpText" type="text" name="">
+      </div>
+    </div>
+    <div class="popUpButton_table">
+      <table id="popUpButton_table">
+        <thead>
+          <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>大小</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="popUpContent_footer">
+    <input class="floatRight popUpButton" type="submit" id="popUp_cancel" value="取 消">
+    <input class="marginRight10 floatRight popUpButton" type="submit" id="popUp_submit" value="确 定">
+  </div>
+</div>
+<!-- and弹框 -->
+<div id="popUpAnd" class="popUpModel popUp">
+  <div class="popUpContent_header">
+    <h5>AND</h5>
+    <span class="popUpClose">×</span>
+  </div>
+</div>
+<!-- or弹框 -->
+<div id="popUpOr" class="popUpModel popUp">
+  <div class="popUpContent_header">
+    <h5>OR</h5>
+    <span class="popUpClose">×</span>
+  </div>
+  <div></div>
+</div>
+<!-- 客群弹框 -->
+<div id="popUpCustomers" class="popUpModel popUp">
+  <div class="popUpContent_header">
+    <h5>客群</h5>
+    <span class="popUpClose">×</span>
+  </div>
+  <div></div>
+</div>
+<!-- 限制弹框 -->
+<div id="popUpRestrict" class="popUpModel popUp">
+  <div class="popUpContent_header">
+    <h5>限制</h5>
+    <span class="popUpClose">×</span>
+  </div>
+  <div></div>
+</div>
+<!-- 导出弹框 -->
+<div id="popUpExport" class="popUpModel popUp">
+  <div class="popUpContent_header">
+    <h5>导出</h5>
+    <span class="popUpClose">×</span>
+  </div>
+  <div></div>
+</div>
+<!--右键菜单-->
+<ul id="rightClickMenu">
+  <li id="update">更新</li>
+  <li id="execute">执行</li>
+  <li id="ceshi1">测试1</li>
+  <li id="ceshi2">测试2</li>
+</ul>
+</body>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="js/underscore-min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/jquery.treetable.js"></script>
+<script type="text/javascript" src="js/jsplumb.min.js"></script>
+<script type="text/javascript" src="js/cfg.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</html>

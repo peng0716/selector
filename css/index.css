@@ -1,0 +1,257 @@
+html,body,div,ul,li,h1,h4,h5,p,span,a,input {
+  margin:0;
+  padding:0;
+}
+html,body {
+  height: 100%;
+  overflow: hidden;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+}
+input,select{
+  outline: none;
+  border-radius: 5px;
+}
+li {
+  list-style-type:none
+}
+.floatLeft {
+  float: left;
+}
+.floatRight {
+  float: right;
+}
+.marginRight10 {
+  margin-right:10px;
+}
+
+.model {
+  cursor: move;
+}
+
+.layout {
+  position: relative;
+  padding:1%;
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+}
+.header {
+  margin-bottom:1%;
+  height: 8%;
+  background: #fff;
+}
+.content {
+  height: 90%;
+}
+
+/*容器*/
+#container {
+  position: relative;
+  float: left;
+  width: 83%;
+  height: 100%;
+  background-color: #ffffff;
+  border:1px solid #ccc;
+  border-radius: 5px;
+  z-index: 0;
+  overflow: auto;
+}
+
+/*功能*/
+.rightFunction {
+  float: right;
+  width: 16%;
+  height: 100%;
+  background-color: #eee;
+  border-radius: 5px;
+}
+#rightMenu {
+  padding:10%
+}
+#rightMenu > li {
+  margin-bottom: 12px;
+  padding:0 10px;
+  background-color: #438eb9;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+/*选择标签*/
+.model {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 0;
+  min-width: 160px;
+}
+.model h4{
+  background-color: #438eb9;
+  text-align: center;
+  background-image: none;
+  font-size: 16px;
+  color: #fff;
+  border: 1px solid #438eb9;
+  margin: 0px;
+  height: 35px;
+  vertical-align: middle;
+  padding: 0 3px;
+  line-height: 30px;
+}
+#container .model > h4 > a{
+  color: #fff
+}
+#container .model > h4 > span{
+  display: inline-block;
+  width:90%;
+  cursor: pointer;
+}
+#container .model > p {
+  line-height: 30px;
+  text-align: center;
+}
+
+/*端点样式*/
+.start_dot {
+  position: absolute;
+  right: 5px;
+  bottom: 7px;
+  width: 1em;
+  height: 1em;
+  background-color: #62A8D1;
+  cursor: pointer;
+}
+.dragHover {
+  border: 2px solid orange;
+}
+
+/*标签右键菜单*/
+#rightClickMenu {
+  display: none;
+  position: absolute;
+  min-width: 100px;
+  background-color: #fff;
+  border:1px solid #eee;
+  border-radius: 5px;
+}
+#rightClickMenu > li {
+  padding-left:14px;
+  line-height: 30px;
+  cursor: pointer;
+}
+#rightClickMenu > li:hover {
+  color: #fff;
+  background-color: #ccc;
+}
+
+/* 选择标签弹框*/
+.popUpBg {
+  display: none;
+  position: absolute;
+  top:0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  filter:alpha(Opacity=60);-moz-opacity:0.6;opacity: 0.6
+}
+.popUpModel {
+  margin:-250px 0 0 -500px;
+  width:1000px;
+  height: 500px;
+}
+
+.popUp {
+  display: none;
+  position: absolute;
+  top:50%;
+  left:50%;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.popUpContent_header {
+  padding:0 10px;
+  height: 30px;
+  background-color: #eee;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.popUpContent_header > h5 {
+  float: left;
+  margin:0;
+  line-height: 30px;
+}
+.popUpContent_header > span {
+  float: right;
+  line-height: 30px;
+  font-size: 18px;
+  cursor: pointer;
+}
+.popUpContent_header > span:hover {
+  color: #438eb9;
+}
+
+.popUpContent {
+  height: 426px;
+  border-bottom: 1px solid #eee;
+}
+.popUpContent_screening {
+  padding:10px;
+  border-bottom: 1px solid #eee;
+}
+.popUpText {
+  padding-left:5px;
+  line-height: 22px;
+  border:1px solid #eee;
+}
+.popUpSelect {
+  height: 24px;
+  line-height: 24px;
+  color: #ccc;
+  border-color: #eee;
+}
+.color333 {
+  color:#333
+}
+.popUpRule1,.popUpRule2 {
+  display: none;
+}
+
+.popUpButton_table {
+  margin:10px;
+  height: 361px;
+  background-color: #eee;
+}
+
+.tagSelection {
+  color: #438eb9;
+}
+
+
+
+
+
+
+
+
+
+.popUpContent_footer {
+  padding:10px
+}
+.popUpButton {
+  padding:0 10px;
+  line-height: 24px;
+  border: 0;
+  background: #eee;
+}
+.popUpButton:hover {
+  color:#fff;
+  background-color: #438eb9;
+}
+
+
