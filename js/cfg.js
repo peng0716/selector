@@ -35,7 +35,9 @@ var cfg = {
       name:'标签名',
       type:'model',
       x:'50',
-      y:'50'
+      y:'50',
+      to:['model_model_0','and_model_1'],
+      txt:['10','50']
     }
   ],
   initRightFu:'<% _.each(cfg.rightData, function (obj) { %>' +
@@ -61,42 +63,98 @@ var cfg = {
     {
       pId:'',
       id:'1',
-      name:'一级名称',
+      name:'职位',
+      kind:'类型1',
+      size:'1.34KB'
+    },
+    {
+      pId:'1',
+      id:'1-1',
+      name:'员工',
       kind:'类型1',
       size:'1.34KB'
     },
     {
       pId:'1',
       id:'1-2',
-      name:'二级',
+      name:'管理层',
+      kind:'类型1',
+      size:'1.34KB'
+    },
+    {
+      pId:'1',
+      id:'1-3',
+      name:'领导层',
+      kind:'类型1',
+      size:'1.34KB'
+    },
+    {
+      pId:'1',
+      id:'1-4',
+      name:'测试-自定义',
+      kind:'类型1',
+      size:'1.34KB'
+    },
+    {
+      pId:'1-4',
+      id:'1-4-1',
+      name:'测试-自定义-三级1',
+      kind:'类型1',
+      size:'1.34KB'
+    },
+    {
+      pId:'1-4-1',
+      id:'1-4-1-1',
+      name:'测试-自定义-四级',
+      kind:'类型1',
+      size:'1.34KB'
+    },
+    {
+      pId:'1-4',
+      id:'1-4-2',
+      name:'测试-自定义-三级2',
       kind:'类型1',
       size:'1.34KB'
     },
     {
       pId:'',
       id:'2',
-      name:'年龄',
+      name:'学历',
       kind:'类型2',
       size:'1.34KB'
     },
     {
       pId:'2',
       id:'2-1',
-      name:'二级-1',
-      kind:'类型2',
-      size:'1.34KB'
-    },
-    {
-      pId:'2-1',
-      id:'2-2-1',
-      name:'三级-1',
+      name:'高中或以下',
       kind:'类型2',
       size:'1.34KB'
     },
     {
       pId:'2',
       id:'2-2',
-      name:'二级-2',
+      name:'大专',
+      kind:'类型2',
+      size:'1.34KB'
+    },
+    {
+      pId:'2',
+      id:'2-3',
+      name:'本科',
+      kind:'类型2',
+      size:'1.34KB'
+    },
+    {
+      pId:'2',
+      id:'2-4',
+      name:'硕士',
+      kind:'类型2',
+      size:'1.34KB'
+    },
+    {
+      pId:'2',
+      id:'2-5',
+      name:'博士',
       kind:'类型2',
       size:'1.34KB'
     },
@@ -106,8 +164,37 @@ var cfg = {
       name:'性别',
       kind:'类型3',
       size:'1.34KB'
+    },
+    {
+      pId:'3',
+      id:'3-1',
+      name:'男',
+      kind:'类型3',
+      size:'1.34KB'
+    },
+    {
+      pId:'3',
+      id:'3-2',
+      name:'女',
+      kind:'类型3',
+      size:'1.34KB'
+    },
+    {
+      pId:'',
+      id:'4',
+      name:'年龄',
+      kind:'类型3',
+      size:'1.34KB'
+    },
+    {
+      pId:'',
+      id:'5',
+      name:'薪资',
+      kind:'类型3',
+      size:'1.34KB'
     }
   ],  // 弹框table测试数据
+  rulesData:['年龄','薪资'],  // 规则字段
   // 弹框table模板
   popUpTableElement:'<% _.each(cfg.popUpTableData, function (obj) { %>' +
     '<tr data-tt-id=<%= obj.id %> data-tt-parent-id=<%= obj.pId %>>' +
@@ -330,14 +417,24 @@ var cfg = {
         break
     }
   },
+  /*rulesObj 判断是否需要规则选择*/
+  rulesObj: function (name) {
+    for(var i = 0; i < cfg.rulesData.length;i++){
+      if(cfg.rulesData[i] === name ){
+        return true
+      }
+    }
+    return false
+  },
   /*弹框table点击事件*/
   popUpTableClick: function (el) {
     $('.tagSelection_rm').removeClass('tagSelection')
     $(el).addClass('tagSelection')
     var text = $(el).text()
+    if(cfg.rulesObj(text)){
+      $('#popUpSelect').attr('disabled',false).addClass('color333')
+    }
     $('#tagSelection').text(text)
-    // 需类型判断
-    $('#popUpSelect').attr('disabled',false).addClass('color333')
   },
   /*删除模型*/
   removeElement:function (obj) {

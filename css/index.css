@@ -223,9 +223,25 @@ li {
 }
 
 .popUpButton_table {
+  position: relative;
   margin:10px;
   height: 361px;
   background-color: #eee;
+  overflow: hidden;
+  overflow-y: auto;
+}
+.table_unfold {
+  position: absolute;
+  right: 5px;
+  top: 2px;
+}
+.table_unfold > span {
+  padding: .1em .3em;
+  font-size: .8em;
+  background-color: #438eb9;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
 }
 
 .tagSelection {

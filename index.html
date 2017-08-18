@@ -53,6 +53,10 @@
       </div>
     </div>
     <div class="popUpButton_table">
+      <p class="table_unfold">
+        <span onclick="$('#popUpButton_table').treetable('expandAll'); return false;">展开</span>
+        <span onclick="$('#popUpButton_table').treetable('collapseAll'); return false;">收起</span>
+      </p>
       <table id="popUpButton_table">
         <thead>
           <tr>
@@ -121,7 +125,7 @@
 <script type="text/javascript" src="js/underscore-min.js"></script>
 <script type="text/javascript" src="js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/jquery.treetable.js"></script>
-<script type="text/javascript" src="js/jsplumb.min.js"></script>
+<script type="text/javascript" src="js/jsPlumb-2.2.8.js"></script>
 <script type="text/javascript" src="js/cfg.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 </html>

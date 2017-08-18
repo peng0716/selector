@@ -7,10 +7,11 @@
     });*/
 
     /*instance.registerConnectionType("basic", { anchor:"Continuous", connector:"StateMachine" });*/
+
+    // 获取连接id 禁止连接自己
     instance.bind("connection", function (connInfo, originalEvent) {
-      debugger
       if (connInfo.connection.sourceId == connInfo.connection.targetId){
-        instance.deleteConnection(connInfo.connection);
+        instance.detach(connInfo.connection);
         alert("不能连接自己！");
       }else{
         alert("连接"+connInfo.connection.sourceId+"==="+connInfo.connection.targetId);
@@ -18,8 +19,7 @@
     });
     //删除连接线
     instance.bind("click", function (c) {
-      debugger
-      instance.deleteConnection(c);
+      instance.detach(c);
     });
 
     window.jsp = instance
@@ -63,7 +63,7 @@
   /*弹框table初始化*/
     var popUpTable = _.template(cfg.popUpTableElement,cfg.popUpTableData)
     $("#popUpButton_table > tbody").append(popUpTable);
-    $('#popUpButton_table').treetable({expandAll:false})  // 设置全部展开
+    // $('#popUpButton_table').treetable({expandAll:false})  // 设置全部展开
     $("#popUpButton_table").treetable({expandable: true});
 
 
