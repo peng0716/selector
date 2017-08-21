@@ -1,6 +1,7 @@
 html,body,div,ul,li,h1,h4,h5,p,span,a,input {
   margin:0;
   padding:0;
+  font: 12px/1em "Helvetica Neue",Helvetica,Arial,sans-serif
 }
 html,body {
   height: 100%;
@@ -8,6 +9,9 @@ html,body {
   -moz-user-select: none;
   -khtml-user-select: none;
   user-select: none;
+}
+input,span {
+  font-size: 1.2em
 }
 input,select{
   outline: none;
@@ -22,8 +26,14 @@ li {
 .floatRight {
   float: right;
 }
+.width50 {
+  width: 50%
+}
 .marginRight10 {
   margin-right:10px;
+}
+.marginLeft10 {
+  margin-left: 10px
 }
 
 .model {
@@ -37,13 +47,29 @@ li {
   height: 100%;
   background-color: #ccc;
 }
-.header {
-  margin-bottom:1%;
-  height: 8%;
-  background: #fff;
-}
+
 .content {
-  height: 90%;
+  height: 90%
+}
+.save {
+  margin-top:1%;
+  padding:1%;
+  height: 8%;
+  line-height: 26px;
+  background: #fff;
+  border-radius: 5px;
+  font-size: 1em
+}
+.save > input {
+  padding:5px;
+  height: 100%;
+  background-color:#eee;
+  border: 1px solid #ccc;
+}
+.saveSub:hover {
+  color:#fff;
+  background-color: #438EB9;
+  border-color: #438EB9
 }
 
 /*容器*/
@@ -95,26 +121,28 @@ li {
   background-color: #438eb9;
   text-align: center;
   background-image: none;
-  font-size: 16px;
   color: #fff;
   border: 1px solid #438eb9;
   margin: 0px;
-  height: 35px;
+  height: 34px;
   vertical-align: middle;
   padding: 0 3px;
-  line-height: 30px;
+  line-height: 34px;
 }
 #container .model > h4 > a{
-  color: #fff
+  color: #fff;
+  font-size: 1.4em
 }
 #container .model > h4 > span{
   display: inline-block;
   width:90%;
+  font-size: 1.4em;
   cursor: pointer;
 }
 #container .model > p {
   line-height: 30px;
   text-align: center;
+  font-size: 1.2em
 }
 
 /*端点样式*/
@@ -124,6 +152,7 @@ li {
   bottom: 7px;
   width: 1em;
   height: 1em;
+  font-size: 1.4em;
   background-color: #62A8D1;
   cursor: pointer;
 }
@@ -233,7 +262,7 @@ li {
 .table_unfold {
   position: absolute;
   right: 5px;
-  top: 2px;
+  top: 7px;
 }
 .table_unfold > span {
   padding: .1em .3em;
@@ -246,6 +275,7 @@ li {
 
 .tagSelection {
   color: #438eb9;
+  font-weight: 700
 }
 
 
@@ -269,5 +299,3 @@ li {
   color:#fff;
   background-color: #438eb9;
 }
-
-

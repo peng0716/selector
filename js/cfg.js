@@ -9,11 +9,11 @@ var cfg = {
       type: 'model'
     },
     {
-      name: 'AND',
+      name: '与',
       type: 'and'
     },
     {
-      name: 'OR',
+      name: '或',
       type: 'or'
     },
     {
@@ -28,18 +28,61 @@ var cfg = {
       name: '导 出',
       type: 'export'
     }
-  ],   // 右边功能数据
+  ],   // 右边功能数据]
   initJsPlumbData:[
     {
       id:'model_model_0',
+      value:'',
       name:'标签名',
       type:'model',
       x:'50',
       y:'50',
-      to:['model_model_0','and_model_1'],
+      to:['model_model_1'],
       txt:['10','50']
-    }
+    },
+    {
+      id:'model_model_1',
+      name:'标签名',
+      type:'model',
+      x:'50',
+      y:'50',
+      to:['model_model_2'],
+      txt:['10','50']
+    },{
+      id:'model_model_2',
+      name:'标签名',
+      type:'model',
+      x:'50',
+      y:'50',
+      to:['model_model_3'],
+      txt:['10','50']
+    },{
+      id:'model_model_3',
+      name:'标签名',
+      type:'model',
+      x:'50',
+      y:'50',
+      to:[],
+      txt:['10','50']
+    },
   ],
+  // getlian:function(sid){
+  //     let lian = [],
+  //
+  //     function a(all,nsid){
+  //       all.map(item=>{
+  //           if(item.to==nsid){
+  //             lian.push(item);
+  //             a(all,item.id)
+  //           }else{
+  //
+  //           }
+  //       })
+  //
+  //
+  //     }
+  //     a (initJsPlumbData,sid)//3
+  // },
   initRightFu:'<% _.each(cfg.rightData, function (obj) { %>' +
   '<li model_type= <%= obj.type %>><%= obj.name %></li>' +
   '<% }); %>',
@@ -194,7 +237,6 @@ var cfg = {
       size:'1.34KB'
     }
   ],  // 弹框table测试数据
-  rulesData:['年龄','薪资'],  // 规则字段
   // 弹框table模板
   popUpTableElement:'<% _.each(cfg.popUpTableData, function (obj) { %>' +
     '<tr data-tt-id=<%= obj.id %> data-tt-parent-id=<%= obj.pId %>>' +
@@ -206,11 +248,11 @@ var cfg = {
   // 右键菜单数据
   rightClickMenu:{
     model:['update','','ceshi1',''],
-    and:['','','ceshi1','ceshi2'],
-    or:['','','','ceshi2'],
+    and:['update','','ceshi1','ceshi2'],
+    or:['update','','','ceshi2'],
     customers:['update','','','ceshi2'],
-    restrict:['','','ceshi1',''],
-    export:['update','execute','ceshi1','ceshi2']
+    restrict:['update','','ceshi1',''],
+    export:['update','execute','','']
   },
   rightClickMenuCompare:['update','execute','ceshi1','ceshi2'], //右键菜单对比
   initRightMenuStyle: {
@@ -263,44 +305,27 @@ var cfg = {
     ],*/
     Container: "container"  // 元素id
   },
-  moduleStyle: {   //端点样式设置
-
-    // Endpoint: "Rectangle", //端点形状
-    Connector:"Straight",
-    anchor:[ "Perimeter", { shape:"Rectangle" } ],  // 周边锚，动态锚
-    connectorStyle: {  // 线设置
-      stroke: "#62A8D1",
-      strokeWidth: 1
-    },
-    paintStyle: { //点 设置
-      fill: "red",
-      // radius: 10,
-      /*stroke:"#567567",
-      outlineStroke:"black",
-      outlineWidth:5*/
-    },
-    isSource: true, //是否可拖动（作为连接线起点）
-    //connector: ["Flowchart", {stub: 30, gap: 0, coenerRadius: 0,alwaysRespectStubs: true, midpoint: 0.5 }],
-    isTarget: true, //是否可以放置（连接终点）
-    maxConnections: -1,    //最大连接数 -1为无限制
-  },
-  /*创建模型内部元素*/
-  /*getModelElementStr: function (type) {
-    var list = '';
-    for(var data in cfg.rightData){
-      var model_data = cfg.rightData[data]
-      if(type == model_data.type){
-        list += '<h4>' +
-          '<span  class="" spantype="' + model_data.type + '"' +
-          'ondblclick="' + this.name+ '.labelChoosePopUp(this)">'
-          + this.labelchoose(model_data.name)
-          + '</span><a href="javascript:void(0)" class="pull-right" onclick="'+ this.name +'.removeElement(this);">×</a>'
-          + '</h4>';
-        list += '<p>'+"数据显示" + '</p>';
-      }
-    }
-    return list;
-  },*/
+  // moduleStyle: {   //端点样式设置
+  //
+  //   // Endpoint: "Rectangle", //端点形状
+  //   Connector:"Straight",
+  //   anchor:[ "Perimeter", { shape:"Rectangle" } ],  // 周边锚，动态锚
+  //   connectorStyle: {  // 线设置
+  //     stroke: "#62A8D1",
+  //     strokeWidth: 1
+  //   },
+  //   paintStyle: { //点 设置
+  //     fill: "red",
+  //     // radius: 10,
+  //     /*stroke:"#567567",
+  //     outlineStroke:"black",
+  //     outlineWidth:5*/
+  //   },
+  //   isSource: true, //是否可拖动（作为连接线起点）
+  //   //connector: ["Flowchart", {stub: 30, gap: 0, coenerRadius: 0,alwaysRespectStubs: true, midpoint: 0.5 }],
+  //   isTarget: true, //是否可以放置（连接终点）
+  //   maxConnections: -1,    //最大连接数 -1为无限制
+  // },
   /*添加模型到容器 container*/
   createModel: function (ui, selector) {
     var type = $(ui.draggable).attr('model_type'),
@@ -393,19 +418,24 @@ var cfg = {
   },
   /*labelchoosePopUp标签选择弹框*/
   labelChoosePopUp: function (obj) {
-    var type = obj.attributes['spantype'].value
+    var type = obj.attributes['spantype'].value,
+        txt = obj.innerHTML
+    if (type == 'and' || type == 'or') { return false }
     cfg.cunId = $(obj).parents('div').attr('id')
     $('.popUpBg').css(this.display_show)
     switch (type) {
       case 'model':
+        if(txt != '请选择标签'){
+          $('#tagSelection').text(txt)
+        }
         $('#popUpModel').css(this.display_show)
         break
-      case 'and':
-        $('#popUpAnd').css(this.display_show)
-        break
-      case 'or':
-        $('#popUpOr').css(this.display_show)
-        break
+      // case 'and':
+      //   $('#popUpAnd').css(this.display_show)
+      //   break
+      // case 'or':
+      //   $('#popUpOr').css(this.display_show)
+      //   break
       case 'customers':
         $('#popUpCustomers').css(this.display_show)
         break
@@ -417,11 +447,22 @@ var cfg = {
         break
     }
   },
+   // 规则字段
+  rulesData:[
+    {
+      name:'年龄',
+      ary:['1','3','5']
+    },
+    {
+      name:'薪资',
+      ary:['2','4']
+    }
+  ],
   /*rulesObj 判断是否需要规则选择*/
   rulesObj: function (name) {
     for(var i = 0; i < cfg.rulesData.length;i++){
-      if(cfg.rulesData[i] === name ){
-        return true
+      if(cfg.rulesData[i].name === name ){
+        return cfg.rulesData[i].ary
       }
     }
     return false
@@ -430,11 +471,28 @@ var cfg = {
   popUpTableClick: function (el) {
     $('.tagSelection_rm').removeClass('tagSelection')
     $(el).addClass('tagSelection')
-    var text = $(el).text()
-    if(cfg.rulesObj(text)){
+    $('#popUpSelect').val('0')
+    var text = $(el).text(),
+        aryRules = cfg.rulesObj(text)
+    if(aryRules){ //判断是否规则字段
+      $('#popUpSelect > option:gt(0)').css(cfg.display_hide)
+      for (key in aryRules){
+        $('#popUpSelect > option').eq(aryRules[key]).css(cfg.display_show)
+      }
       $('#popUpSelect').attr('disabled',false).addClass('color333')
+    }else {
+      $('#popUpSelect').attr('disabled',true).removeClass('color333')
     }
     $('#tagSelection').text(text)
+  },
+  // 选择标签初始化
+  initSelectModel: function (){
+    $('.popUpBg').css(cfg.display_hide)
+    $('.popUp').css(cfg.display_hide)
+    $('#tagSelection').text('请选择标签')
+    $('.tagSelection_rm').removeClass('tagSelection')
+    $('#popUpSelect').val('0')
+    $('#popUpSelect').attr('disabled',true).removeClass('color333')
   },
   /*删除模型*/
   removeElement:function (obj) {

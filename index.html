@@ -10,8 +10,6 @@
 </head>
 <body>
 <div class="layout">
-  <!--头部-->
-  <div class="header"></div>
   <!--内容-->
   <div class="content">
     <!--容器-->
@@ -21,6 +19,14 @@
       <ul id="rightMenu"></ul>
     </div>
   </div>
+  <!--保存-->
+  <div class="save">
+    <span>名称</span>
+    <input type="text" value="model_01">
+    <span class='marginLeft10'>描述</span>
+    <input class='width50' type="text">
+    <input class='marginLeft10 saveSub' type="submit" value='保 存'>
+  </div>
 </div>
 <!--弹框背景-->
 <div class="popUpBg"></div>
@@ -28,7 +34,7 @@
 <div id="popUpModel" class="popUpModel popUp">
   <div class="popUpContent_header">
     <h5><span>标签选择：</span><span id='tagSelection'>请选择标签</span></h5>
-    <span class="popUpClose">×</span>
+    <span type='model' class="popUpClose">×</span>
   </div>
   <div class="popUpContent">
     <div class="popUpContent_screening">
@@ -75,25 +81,25 @@
   </div>
 </div>
 <!-- and弹框 -->
-<div id="popUpAnd" class="popUpModel popUp">
+<!-- <div id="popUpAnd" class="popUpModel popUp">
   <div class="popUpContent_header">
     <h5>AND</h5>
     <span class="popUpClose">×</span>
   </div>
-</div>
+</div> -->
 <!-- or弹框 -->
-<div id="popUpOr" class="popUpModel popUp">
+<!-- <div id="popUpOr" class="popUpModel popUp">
   <div class="popUpContent_header">
     <h5>OR</h5>
     <span class="popUpClose">×</span>
   </div>
   <div></div>
-</div>
+</div> -->
 <!-- 客群弹框 -->
 <div id="popUpCustomers" class="popUpModel popUp">
   <div class="popUpContent_header">
     <h5>客群</h5>
-    <span class="popUpClose">×</span>
+    <span type='customers' class="popUpClose">×</span>
   </div>
   <div></div>
 </div>
@@ -101,7 +107,7 @@
 <div id="popUpRestrict" class="popUpModel popUp">
   <div class="popUpContent_header">
     <h5>限制</h5>
-    <span class="popUpClose">×</span>
+    <span type='restrict' class="popUpClose">×</span>
   </div>
   <div></div>
 </div>
@@ -109,7 +115,7 @@
 <div id="popUpExport" class="popUpModel popUp">
   <div class="popUpContent_header">
     <h5>导出</h5>
-    <span class="popUpClose">×</span>
+    <span type='export' class="popUpClose">×</span>
   </div>
   <div></div>
 </div>
